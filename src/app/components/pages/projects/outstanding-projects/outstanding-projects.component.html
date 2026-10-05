@@ -174,53 +174,86 @@
                     </div>
                     <div class="border text-pretty  border-black p-2">
                         <p>1. Nome do(a) professor(a) proponete do Projeto: {{projectSelected?.professor?.nome}}</p>
-                        <p>2. Titulação do Professor Proponente:  {{projectSelected?.titulacao}}</p>
-                        <p>2.1 Telefones para contato: {{projectSelected?.professor?.telefone}}</p>
-                        <p>2.2 E-mail: {{projectSelected?.professor?.nome}}</p>
+                        @if (isAdmin) {
+                            <p>2. Titulação do Professor Proponente:  {{projectSelected?.titulacao}}</p>
+                            <p>2.1 Telefones para contato: {{projectSelected?.professor?.telefone}}</p>
+                            <p>2.2 E-mail: {{projectSelected?.professor?.email}}</p>
+                        }
                     </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Curso: {{projectSelected?.curso}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Título do Projeto: {{projectSelected?.titulo}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Linha de Pesquisa: {{projectSelected?.linhaDePesquisa}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Situação do projeto: {{projectSelected?.situacao}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Palavras chaves: {{projectSelected?.palavrasChave}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Localização: {{projectSelected?.localizacao}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>População: {{projectSelected?.populacao}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Justifcativa: {{projectSelected?.justificativa}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Objetivo geral: {{projectSelected?.objetivoGeral}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Objetivos específicos: {{projectSelected?.objetivoEspecifico}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Metodologia: {{projectSelected?.metodologia}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Cronograma de atividades: {{projectSelected?.cronogramaDeAtividade}}</p>
-                    </div>
-                    <div class="text-pretty border border-black p-2">
-                        <p>Referências: {{projectSelected?.cronogramaDeAtividade}}</p>
-                    </div>
+                    @if (isAdmin) {
+                        <div class="text-pretty border border-black p-2">
+                            <p>Curso: {{projectSelected?.curso}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Título do Projeto: {{projectSelected?.titulo}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Linha de Pesquisa: {{projectSelected?.linhaDePesquisa}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Situação do projeto: {{projectSelected?.situacao}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Descrição: {{projectSelected?.descricao}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Palavras chaves: {{projectSelected?.palavrasChave}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Localização: {{projectSelected?.localizacao}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>População: {{projectSelected?.populacao}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Justificativa: {{projectSelected?.justificativa}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Objetivo geral: {{projectSelected?.objetivoGeral}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Objetivos específicos: {{projectSelected?.objetivoEspecifico}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Metodologia: {{projectSelected?.metodologia}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Cronograma de atividades: {{projectSelected?.cronogramaDeAtividade}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Referências: {{projectSelected?.referencias}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Termos aceitos: {{projectSelected?.termos ? 'Sim' : 'Não'}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Vagas: {{projectSelected?.vagas}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Vagas ocupadas: {{projectSelected?.vagas_ocupadas}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Aprovado: {{projectSelected?.aprovado ? 'Sim' : 'Não'}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Data de criação: {{projectSelected?.data_criacao | date:'dd/MM/yyyy'}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Data limite de edição: {{projectSelected?.data_limite_edicao | date:'dd/MM/yyyy'}}</p>
+                        </div>
+                    } @else {
+                        <div class="text-pretty border border-black p-2">
+                            <p>Título do Projeto: {{projectSelected?.titulo}}</p>
+                        </div>
+                        <div class="text-pretty border border-black p-2">
+                            <p>Descrição: {{projectSelected?.descricao}}</p>
+                        </div>
+                    }
                 </div>
                 <!-- Modal footer -->
                 <div class="flex items-center gap-4 p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button (click)="printPDF(projectSelected!.id)" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Baixar PDF</button>
+                    <button (click)="printDocument(projectSelected!.id)" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Imprimir</button>
                     <button (click)="toggleModal()" type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Fechar</button>
                 </div>
             </div>
